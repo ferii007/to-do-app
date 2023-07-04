@@ -4,12 +4,18 @@
 
 @layer base {
   @font-face {
-    font-family: 'Barlow Regular';
-    src: url('/public/fonts/barlow/Barlow-Regular.ttf');
+    font-family: 'SF';
+    src: url('/public/fonts/SFPRODISPLAYREGULAR.OTF');
   } 
-}
 
-* {
-  font-family: 'barlowRegular';
-  font-weight: normal;
+  * {
+    font-family: 'SF';
+    font-weight: normal;
+  }
+
+  body {
+    background-color: #FFF;
+    max-width: 420px;
+    margin: auto;
+  }
 }

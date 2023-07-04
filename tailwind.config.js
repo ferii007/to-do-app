@@ -3,10 +3,6 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        barlowRegular: ['Barlow Regular', 'sans-serif'],
-      },
-
       colors: {
         'primary-theme-color-success': '#117A7A',
         'default-theme-color-success': '#17A1A1',
