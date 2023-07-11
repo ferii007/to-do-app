@@ -11,11 +11,11 @@ const StartPage = () => {
 
     return(
         <div className="text-center pt-12 pb-8 px-5">
-            <h1 className="text-3xl font-bold">
+            <h1 className="text-title">
                 Create to do list
             </h1>
 
-            <h3 className="text-sm text-secondary-color-neutral mt-2">
+            <h3 className="text-sub-title">
                 Choose your to do list color theme:
             </h3>
 
@@ -52,7 +52,7 @@ const StartPage = () => {
                         </label>
                     </div>
                 </div>
-{/*  */}
+
                 <div className="relative">
                     <div className={`bg-default-theme-color-warning w-8 h-8 absolute rounded-full -top-3 -left-3 flex items-center justify-center z-10 ${themeSelected === 'warningTheme' ? 'opacity-100' : 'opacity-0'}`}>
                         <Icon icon="material-symbols:check" className="text-white" width="20" />

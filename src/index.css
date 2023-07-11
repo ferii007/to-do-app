@@ -19,3 +19,17 @@
     margin: auto;
   }
 }
+
+@layer components {
+  .text-title {
+    @apply text-3xl font-bold
+  }
+
+  .text-sub-title {
+    @apply text-sm text-secondary-color-neutral mt-2
+  }
+
+  .input-form {
+    @apply bg-transparent focus:outline-none focus:text-secondary-color-neutral placeholder:text-secondary-color-neutral
+  }
+}
