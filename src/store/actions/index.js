@@ -1,6 +1,6 @@
-import createTodo from './createTodo';
+import { createTodo, allDataNotes} from './actions';
 
 
 
 
-export { createTodo }
+export { createTodo, allDataNotes }
