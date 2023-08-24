@@ -1,17 +1,12 @@
 import { Icon } from '@iconify/react';
 import TodoElements from './TodoElements';
 import AddTodoList from './AddTodoList';
-import OverlayElement from '../OverlayElement';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actionCreators from './../../store/actions/index';
+import { useSelector } from 'react-redux';
 
 const MainPage = () => {
-
-    const dispatch = useDispatch();
-	const { createTodo } = bindActionCreators(actionCreators, dispatch);
     const isCreateTodo = useSelector((state) => state.createTodo);
+
     return(
         <>
             <div className={`${isCreateTodo ? 'opacity-0 h-96 overflow-hidden' : 'opacity-100 overflow-auto'} transition-all duration-500 z-40`}>
@@ -27,11 +22,6 @@ const MainPage = () => {
         
                     <TodoElements />
                 </div>
-
-                {/* <div className={`${isCreateTodo ? 'block' : 'hidden'}`} onClick={() => createTodo(false)}>
-                    <OverlayElement />
-                </div> */}
-
             </div>
 
             <AddTodoList />
