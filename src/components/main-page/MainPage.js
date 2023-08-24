@@ -17,8 +17,8 @@ const MainPage = () => {
             <div className="py-10 px-5">
                 <div className="flex justify-between items-center">
                     <div>
-                        <h1 className="text-title">Today</h1>
-                        <h3 className="text-sub-title">Best paltform for creating to-do lists</h3>
+                        <h1 className="text-title font-raleway">NoteWave</h1>
+                        <h3 className="text-sub-title font-nunito">Elevate Your Notes: Unmatched Platform for Creation</h3>
                     </div>
     
                     <Icon icon="uiw:setting" width={24} className='text-secondary-color-neutral' />

@@ -1,5 +1,5 @@
 import MainPage from "./main-page/MainPage"
-import StartPage from "./start-page/StartPage"
+// import StartPage from "./start-page/StartPage"
 
 const TodoApp = () => {
 

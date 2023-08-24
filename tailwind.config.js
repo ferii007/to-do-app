@@ -32,6 +32,11 @@ module.exports = {
         'bg-color-neutral': '#F6F7F9',
       },
 
+      fontFamily: {
+        'raleway': ['Raleway', 'sans-serif'],
+        'nunito': ['Nunito', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+      }
     },
   },
   plugins: [],

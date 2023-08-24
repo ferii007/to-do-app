@@ -17,12 +17,13 @@
     background-color: #FFF;
     max-width: 420px;
     margin: auto;
+    overflow: hidden;
   }
 }
 
 @layer components {
   .text-title {
-    @apply text-3xl font-bold
+    @apply text-3xl font-semibold
   }
 
   .text-sub-title {
@@ -30,6 +31,6 @@
   }
 
   .input-form {
-    @apply bg-transparent focus:outline-none focus:text-secondary-color-neutral placeholder:text-secondary-color-neutral
+    @apply bg-transparent focus:outline-none text-base placeholder:text-secondary-color-neutral
   }
 }
