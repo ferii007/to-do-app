@@ -2,10 +2,10 @@ import { Icon } from '@iconify/react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actionCreators from './../../store/actions/index';
+import * as actionCreators from '../../store/actions/index';
 import { useState } from 'react';
 
-const AddTodoList = () => {
+const AddNoteList = () => {
 
     const dispatch = useDispatch();
 	const { createTodo } = bindActionCreators(actionCreators, dispatch);
@@ -46,10 +46,10 @@ const AddTodoList = () => {
                 const addRequest = objectStore.add(newNote);
 
                 addRequest.onsuccess = function() {
-                    console.log('Catatan berhasil disimpan di IndexedDB');
                     createTodo(false);
                     setTittleNote('');
                     setDescNote('');
+                    console.log('Catatan berhasil disimpan di IndexedDB');
                 };
 
                 addRequest.onerror = function() {
@@ -91,4 +91,4 @@ const AddTodoList = () => {
 
 }
 
-export default AddTodoList
+export default AddNoteList

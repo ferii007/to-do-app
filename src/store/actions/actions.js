@@ -16,3 +16,12 @@ export const allDataNotes = (flag) => {
         })
     }
 }
+
+export const showDeleteNoteModal = (flag) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'show_delete_note_modal',
+            payload: flag
+        })
+    }
+}

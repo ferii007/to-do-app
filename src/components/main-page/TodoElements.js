@@ -8,7 +8,7 @@ import { formatDate, formatTime } from '../helpers/formatDate';
 
 const TodoElements = () => {
     const dispatch = useDispatch();
-	const { createTodo, allDataNotes } = bindActionCreators(actionCreators, dispatch);
+	const { createTodo, allDataNotes, showDeleteNoteModal } = bindActionCreators(actionCreators, dispatch);
     const isCreateTodo = useSelector((state) => state.createTodo);
     const allDataNotesLength = useSelector((state) => state.allDataNotes);
 
@@ -163,12 +163,17 @@ const TodoElements = () => {
                             <Icon icon="ri:share-fill" className='cursor-pointer w-7 h-7' />
                             <Icon icon="solar:download-bold" className='cursor-pointer w-7 h-7' />
                             <Icon icon="bxs:edit" className='cursor-pointer w-7 h-7' />
-                            <Icon icon="ph:trash-fill" className='cursor-pointer w-7 h-7 text-primary-theme-color-error' />
+                            <Icon icon="ph:trash-fill" className='cursor-pointer w-7 h-7 text-default-theme-color-error' onClick={() => showDeleteNoteModal({
+                                open: true,
+                                id: notes.id,
+                                title: notes.title,
+                                notes: notes.notes
+                            })} />
                         </div>
                     </div>
                 ))
                 :
-                ''
+                null
             }
         </div>
     )

@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
 import TodoElements from './TodoElements';
-import AddTodoList from './AddTodoList';
+import AddNoteList from './AddNoteList';
+import DeleteNote from './DeleteNote';
 
 import { useSelector } from 'react-redux';
 
@@ -9,25 +10,26 @@ const MainPage = () => {
 
     return(
         <>
-            <div className={`${isCreateTodo ? 'opacity-0 h-96 overflow-hidden' : 'opacity-100 overflow-auto'} transition-all duration-500 z-40`}>
-                <div className="py-10 px-5">
-                    <div className="flex justify-between items-center">
-                        <div>
-                            <h1 className="text-title font-raleway">NoteWave</h1>
-                            <h3 className="text-sub-title font-nunito">Elevate Your Notes: Unmatched Platform for Creation</h3>
+            <main className='overflow-scroll h-screen relative'>
+                <div className={`max-w-screen-sm m-auto ${isCreateTodo ? 'opacity-0 h-96 overflow-hidden' : 'opacity-100 overflow-auto'} transition-all duration-500`}>
+                    <div className="py-10 px-5">
+                        <div className="flex justify-between items-center">
+                            <div>
+                                <h1 className="text-title font-raleway">NoteWave</h1>
+                                <h3 className="text-sub-title font-nunito">Elevate Your Notes: Unmatched Platform for Creation</h3>
+                            </div>
+            
+                            <Icon icon="uiw:setting" width={24} className='text-secondary-color-neutral' />
                         </div>
-        
-                        <Icon icon="uiw:setting" width={24} className='text-secondary-color-neutral' />
+            
+                        <TodoElements />
                     </div>
-        
-                    <TodoElements />
                 </div>
-            </div>
-
-            <AddTodoList />
+                <AddNoteList />
+            </main>
+            <DeleteNote />
         </>
     )
-
 }
 
 export default MainPage
