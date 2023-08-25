@@ -1,9 +1,9 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actionCreators from '../store/actions/index';
+import * as actionCreators from '../../store/actions/index';
 
-import OverlayElement from './OverlayElement';
+import OverlayElement from '../OverlayElement';
 
 const DeleteNote = () => {
     const dispatch = useDispatch();

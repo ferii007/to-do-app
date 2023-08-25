@@ -1,5 +1,5 @@
-import AddNoteList from "./AddNoteList";
-import DeleteNote from "./DeleteNote";
+import AddNoteList from "./notes/AddNoteList";
+import DeleteNote from "./notes/DeleteNote";
 import Footer from "./Footer"
 import NotifAlert from "./alert/NotifAlert"
 import MainPage from "./main-page/MainPage"

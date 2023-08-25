@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actionCreators from '../store/actions/index';
+import * as actionCreators from '../../store/actions/index';
 import { useState } from 'react';
 
 const AddNoteList = () => {
