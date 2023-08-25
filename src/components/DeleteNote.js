@@ -1,9 +1,9 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actionCreators from './../../store/actions/index';
+import * as actionCreators from '../store/actions/index';
 
-import OverlayElement from '../OverlayElement';
+import OverlayElement from './OverlayElement';
 
 const DeleteNote = () => {
     const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const DeleteNote = () => {
                 <OverlayElement /> : ''
             }
 
-            <div className={`absolute top-0 left-0 right-0 px-3 m-auto h-screen z-10 ${isShowDeleteNoteModal ? 'scale-100' : 'scale-0'} transition-all duration-300`}>
+            <div className={`absolute top-0 left-0 right-0 px-3 m-auto h-screen z-20 ${isShowDeleteNoteModal ? 'scale-100' : 'scale-0'} transition-all duration-300`}>
                 <div className='h-full flex items-center'>
                     <div className="bg-white rounded-lg drop-shadow-lg overflow-hidden w-full">
                         <div className="bg-default-theme-color-success w-full px-4 py-2 flex justify-between items-center">

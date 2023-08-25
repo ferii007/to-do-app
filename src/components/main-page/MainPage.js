@@ -1,7 +1,5 @@
 import { Icon } from '@iconify/react';
 import TodoElements from './TodoElements';
-import AddNoteList from './AddNoteList';
-import DeleteNote from './DeleteNote';
 
 import { useSelector } from 'react-redux';
 
@@ -10,7 +8,7 @@ const MainPage = () => {
 
     return(
         <section className=''>
-            <div className='overflow-scroll h-screen relative'>
+            <div className='overflow-scroll h-screen relative pb-48'>
                 <div className={`max-w-screen-sm m-auto ${isCreateTodo ? 'opacity-0 h-96 overflow-hidden' : 'opacity-100 overflow-auto'} transition-all duration-500`}>
                     <div className="pt-10 px-5">
                         <div className="flex justify-between items-center">
@@ -25,9 +23,7 @@ const MainPage = () => {
                         <TodoElements />
                     </div>
                 </div>
-                <AddNoteList />
             </div>
-            <DeleteNote />
         </section>
     )
 }

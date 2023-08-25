@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actionCreators from '../../store/actions/index';
+import * as actionCreators from '../store/actions/index';
 import { useState } from 'react';
 
 const AddNoteList = () => {
@@ -71,7 +71,7 @@ const AddNoteList = () => {
     }
 
     return (
-        <div className={`bg-white absolute left-0 right-0 transition-all duration-500 ${isCreateTodo ? 'top-0 bottom-0 opacity-100' : '-bottom-full top-full opacity-0 -z-50'}`}>
+        <div className={`bg-white absolute left-0 right-0 transition-all duration-500 z-10 ${isCreateTodo ? 'top-0 bottom-0 opacity-100' : '-bottom-full top-full opacity-0 -z-50'}`}>
             <div className='bg-bg-color-neutral p-4 border-b border-line-color-neutral flex justify-between items-center'>
                 <h1 className='text-xl font-bold font-raleway'>Add Note</h1>
 
