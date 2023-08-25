@@ -8,7 +8,7 @@ import { useState } from 'react';
 const AddNoteList = () => {
 
     const dispatch = useDispatch();
-	const { createTodo } = bindActionCreators(actionCreators, dispatch);
+	const { createTodo, savedAlert } = bindActionCreators(actionCreators, dispatch);
     const isCreateTodo = useSelector((state) => state.createTodo);
 
     const [titleNote, setTittleNote] = useState('');
@@ -49,6 +49,11 @@ const AddNoteList = () => {
                     createTodo(false);
                     setTittleNote('');
                     setDescNote('');
+                    
+                    savedAlert(true);
+                    setTimeout(() => {
+                        savedAlert(false);
+                    }, 1000);
                     console.log('Catatan berhasil disimpan di IndexedDB');
                 };
 

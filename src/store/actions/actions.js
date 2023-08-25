@@ -25,3 +25,12 @@ export const showDeleteNoteModal = (flag) => {
         })
     }
 }
+
+export const savedAlert = (flag) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'saved_alert',
+            payload: flag
+        })
+    }
+}

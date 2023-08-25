@@ -12,7 +12,7 @@ const MainPage = () => {
         <>
             <main className='overflow-scroll h-screen relative'>
                 <div className={`max-w-screen-sm m-auto ${isCreateTodo ? 'opacity-0 h-96 overflow-hidden' : 'opacity-100 overflow-auto'} transition-all duration-500`}>
-                    <div className="py-10 px-5">
+                    <div className="pt-10 px-5">
                         <div className="flex justify-between items-center">
                             <div>
                                 <h1 className="text-title font-raleway">NoteWave</h1>

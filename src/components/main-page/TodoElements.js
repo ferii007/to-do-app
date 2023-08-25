@@ -11,16 +11,21 @@ const TodoElements = () => {
 	const { createTodo, allDataNotes, showDeleteNoteModal } = bindActionCreators(actionCreators, dispatch);
     const isCreateTodo = useSelector((state) => state.createTodo);
     const allDataNotesLength = useSelector((state) => state.allDataNotes);
+    const isShowDeleteNoteModal = useSelector((state) => state.showDeleteNoteModal);
 
     const [dataNotes, setDataNotes] = useState([]);
     const [isDropdownVisible, setDropdownVisible] = useState('');
     const [dropdownClicked, setIsDropdownClicked] = useState(false);
     const dropdownRef = useRef(null);
 
+    const hideDropdown = () => {
+        setIsDropdownClicked(false)
+        setDropdownVisible('')
+    }
+
     const showDropdown = (element) => {
         if (dropdownClicked && isDropdownVisible === element) {
-            setIsDropdownClicked(false)
-            setDropdownVisible('')
+            hideDropdown();
         }
         if (isDropdownVisible !== element) {
             setIsDropdownClicked(true)
@@ -29,20 +34,29 @@ const TodoElements = () => {
     }
 
     const handleOutsideClick = (event) => {
-        // if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        //     setDropdownVisible('');
-        //     setIsDropdownClicked(false);
-        // }
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            hideDropdown();
+        }
     };
+
+    const handleDelete = (id, title, notes) => {
+        // hideDropdown();
+        showDeleteNoteModal({
+            open: true,
+            id: id,
+            title: title,
+            notes: notes
+        });
+    }
     
 
-    useEffect(() => {
-        document.addEventListener('mousedown', handleOutsideClick);
+    // useEffect(() => {
+    //     document.addEventListener('mousedown', handleOutsideClick);
 
-        return () => {
-            document.removeEventListener('mousedown', handleOutsideClick);
-        };
-    }, []);
+    //     return () => {
+    //         document.removeEventListener('mousedown', handleOutsideClick);
+    //     };
+    // }, []);
 
     useEffect(() => {
         const request = window.indexedDB.open('noteDatabase', 1);
@@ -79,7 +93,7 @@ const TodoElements = () => {
         request.onerror = function() {
             console.error('Gagal membuka database IndexedDB');
         };
-    }, [isCreateTodo]);
+    }, [isCreateTodo, isShowDeleteNoteModal]);
 
 
     const ParagraphWithLimit = ({ text, limit }) => {
@@ -163,12 +177,7 @@ const TodoElements = () => {
                             <Icon icon="ri:share-fill" className='cursor-pointer w-7 h-7' />
                             <Icon icon="solar:download-bold" className='cursor-pointer w-7 h-7' />
                             <Icon icon="bxs:edit" className='cursor-pointer w-7 h-7' />
-                            <Icon icon="ph:trash-fill" className='cursor-pointer w-7 h-7 text-default-theme-color-error' onClick={() => showDeleteNoteModal({
-                                open: true,
-                                id: notes.id,
-                                title: notes.title,
-                                notes: notes.notes
-                            })} />
+                            <Icon icon="ph:trash-fill" className='cursor-pointer w-7 h-7 text-default-theme-color-error' onClick={() => handleDelete(notes.id, notes.title, notes.notes)} />
                         </div>
                     </div>
                 ))
