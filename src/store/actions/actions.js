@@ -37,3 +37,12 @@ export const alertNotif = (flag, message) => {
         })
     }
 }
+
+export const settingPage = (flag, message) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setting_page',
+            payload: flag
+        })
+    }
+}

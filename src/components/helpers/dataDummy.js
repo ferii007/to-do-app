@@ -1,6 +1,6 @@
 // Simpan 500 data notes ke dalam IndexedDB
 export function addBulkData() {
-    const dataCount = 500;
+    const dataCount = 100;
     const dbName = 'noteDatabase';
     const storeName = 'notes';
 

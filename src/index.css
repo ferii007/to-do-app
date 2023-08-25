@@ -39,4 +39,24 @@
   .input-form {
     @apply bg-transparent focus:outline-none text-base placeholder:text-secondary-color-neutral
   }
+
+  .setting-element {
+    @apply flex justify-between items-center pb-6
+  }
+
+  .setting-label {
+    @apply flex items-center space-x-3
+  }
+
+  .setting-text {
+    @apply text-xl
+  }
+
+  .label-icon {
+    @apply w-6 h-6
+  }
+
+  .setting-icon {
+    @apply w-6 h-6 rotate-180
+  }
 }

@@ -1,12 +1,25 @@
 import { Icon } from "@iconify/react"
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from './../store/actions/index';
 
 const Footer = ({ index, onClick, active }) => {
+    const dispatch = useDispatch();
+	const { settingPage } = bindActionCreators(actionCreators, dispatch);
     const iconSrc = [
         "ic:round-home",
         "ph:note-fill",
         "uis:schedule",
         "uiw:setting",
     ]
+
+    const testing123 = () => {
+        if (index < 3) {
+            onClick();
+        }else {
+            settingPage(true);
+        }
+    }
     return(
         <li 
         className={`
@@ -14,7 +27,7 @@ const Footer = ({ index, onClick, active }) => {
             ${
                 active ? 'before:scale-100': "before:scale-0"
             }`}
-        onClick={() => onClick()}>
+        onClick={() => testing123()}>
             <Icon className={`${active ? "text-default-theme-color-success active-test" : "inactive"} w-7 h-7` } icon={iconSrc[index]} />
         </li>
     )

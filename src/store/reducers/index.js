@@ -3,10 +3,12 @@ import createTodoReducer from "./createTodoReducer";
 import allDataNotesReducer from "./allDataNotesReducer";
 import showDeleteNoteModalReducer from "./showDeleteNoteModalReducer";
 import alertReducer from "./alertReducer";
+import settingPageReducer from "./settingPageReducer";
 
 export default combineReducers({
     createTodo: createTodoReducer,
     allDataNotes: allDataNotesReducer,
     showDeleteNoteModal: showDeleteNoteModalReducer,
     alertNotif: alertReducer,
+    settingPage: settingPageReducer,
 });
