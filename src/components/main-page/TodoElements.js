@@ -137,7 +137,7 @@ const TodoElements = () => {
                 </div>
             </div>
 
-            <hr className='z-50 border-t-4 border-line-color-neutral' />
+            <hr className='border-t-4 border-line-color-neutral' />
 
             <div className='pt-3 pb-4'>
                 <h1 className='text-title font-raleway text-xl'>New Notes</h1>

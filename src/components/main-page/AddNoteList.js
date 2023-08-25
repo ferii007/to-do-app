@@ -71,8 +71,7 @@ const AddNoteList = () => {
     }
 
     return (
-        <div className={`bg-white absolute left-0 right-0 transition-all duration-500 ${isCreateTodo ? 'top-0 bottom-0 opacity-100 z-20' : '-bottom-full top-full opacity-0 -z-50'}`}>
-            {/* <div className={`bg-white -z-50 absolute left-0 right-0 transition-all duration-500 top-0 bottom-0`}> */}
+        <div className={`bg-white absolute left-0 right-0 transition-all duration-500 ${isCreateTodo ? 'top-0 bottom-0 opacity-100' : '-bottom-full top-full opacity-0 -z-50'}`}>
             <div className='bg-bg-color-neutral p-4 border-b border-line-color-neutral flex justify-between items-center'>
                 <h1 className='text-xl font-bold font-raleway'>Add Note</h1>
 

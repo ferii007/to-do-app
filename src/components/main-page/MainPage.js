@@ -9,7 +9,7 @@ const MainPage = () => {
     const isCreateTodo = useSelector((state) => state.createTodo);
 
     return(
-        <section>
+        <section className=''>
             <div className='overflow-scroll h-screen relative'>
                 <div className={`max-w-screen-sm m-auto ${isCreateTodo ? 'opacity-0 h-96 overflow-hidden' : 'opacity-100 overflow-auto'} transition-all duration-500`}>
                     <div className="pt-10 px-5">
