@@ -1,11 +1,7 @@
-const createTodoReducer = (state = false, action) => {
+const createTodoReducer = (state = {}, action) => {
     console.log('action', action)
     switch(action.type){
-        case 'saved_alert':
-            return action.payload;
-        case 'warning_alert':
-            return action.payload;
-        case 'deleted_alert':
+        case 'alert_notif':
             return action.payload;
         default: 
             return state;

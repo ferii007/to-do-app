@@ -7,7 +7,7 @@ import OverlayElement from '../OverlayElement';
 
 const DeleteNote = () => {
     const dispatch = useDispatch();
-	const { showDeleteNoteModal } = bindActionCreators(actionCreators, dispatch);
+	const { showDeleteNoteModal, alertNotif } = bindActionCreators(actionCreators, dispatch);
     const isShowDeleteNoteModal = useSelector((state) => state.showDeleteNoteModal.open);
     const titleNoteOnModal = useSelector((state) => state.showDeleteNoteModal.title);
     const idNoteOnModal = useSelector((state) => state.showDeleteNoteModal.id);
@@ -33,6 +33,10 @@ const DeleteNote = () => {
             const deleteRequest = objectStore.delete(id);
 
             deleteRequest.onsuccess = function(event) {
+                alertNotif(true, 'Deleted');
+                setTimeout(() => {
+                    alertNotif(false, 'Deleted');
+                }, 1500);
                 cancelDelete();
                 console.log('Note with ID', id, 'has been deleted from IndexedDB');
             };

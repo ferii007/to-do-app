@@ -8,7 +8,7 @@ import { useState } from 'react';
 const AddNoteList = () => {
 
     const dispatch = useDispatch();
-	const { createTodo, savedAlert } = bindActionCreators(actionCreators, dispatch);
+	const { createTodo, alertNotif } = bindActionCreators(actionCreators, dispatch);
     const isCreateTodo = useSelector((state) => state.createTodo);
 
     const [titleNote, setTittleNote] = useState('');
@@ -50,10 +50,10 @@ const AddNoteList = () => {
                     setTittleNote('');
                     setDescNote('');
                     
-                    savedAlert(true);
+                    alertNotif(true, 'Added');
                     setTimeout(() => {
-                        savedAlert(false);
-                    }, 1000);
+                        alertNotif(false, 'Added');
+                    }, 1500);
                     console.log('Catatan berhasil disimpan di IndexedDB');
                 };
 
@@ -61,6 +61,10 @@ const AddNoteList = () => {
                     console.error('Gagal menyimpan catatan di IndexedDB');
                 };
             } else {
+                alertNotif(true, 'Fill at least one field.');
+                setTimeout(() => {
+                    alertNotif(false, 'Fill at least one field.');
+                }, 1500);
                 console.log('Title dan Desc tidak boleh kosong');
             }
         };

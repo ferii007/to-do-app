@@ -1,12 +1,12 @@
 import TodoApp from "./components/TodoApp";
-import SavedAlert from "./components/alert/SavedAlert";
+import NotifAlert from "./components/alert/NotifAlert";
 
 function App() {
   return (
     <main className="relative">
       <TodoApp />
 
-      <SavedAlert />
+      <NotifAlert />
     </main>
   );
 }

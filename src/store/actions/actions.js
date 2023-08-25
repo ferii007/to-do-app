@@ -26,11 +26,14 @@ export const showDeleteNoteModal = (flag) => {
     }
 }
 
-export const savedAlert = (flag) => {
+export const alertNotif = (flag, message) => {
     return (dispatch) => {
         dispatch({
-            type: 'saved_alert',
-            payload: flag
+            type: 'alert_notif',
+            payload: {
+                show: flag,
+                message: message,
+            }
         })
     }
 }
