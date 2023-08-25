@@ -1,5 +1,4 @@
 const createTodoReducer = (state = {}, action) => {
-    console.log('action', action)
     switch(action.type){
         case 'alert_notif':
             return action.payload;
