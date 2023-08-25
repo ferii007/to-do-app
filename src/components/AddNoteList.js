@@ -71,7 +71,7 @@ const AddNoteList = () => {
     }
 
     return (
-        <div className={`bg-white absolute left-0 right-0 transition-all duration-500 z-10 ${isCreateTodo ? 'top-0 bottom-0 opacity-100' : '-bottom-full top-full opacity-0 -z-50'}`}>
+        <div className={`bg-white h-screen absolute left-0 right-0 ${isCreateTodo ? 'top-0 bottom-full opacity-100' : '-bottom-full top-full opacity-0 -z-50'} transition-all duration-500`}>
             <div className='bg-bg-color-neutral p-4 border-b border-line-color-neutral flex justify-between items-center'>
                 <h1 className='text-xl font-bold font-raleway'>Add Note</h1>
 
@@ -80,8 +80,8 @@ const AddNoteList = () => {
                     <Icon icon="mingcute:back-fill" width="32" className='text-secondary-color-neutral cursor-pointer' onClick={() => createTodo(false)} />
                 </div>
             </div>
-            
-            <div className={`p-4`}>
+
+            <div className="p-4">
                 <form action="#" className="flex flex-col space-y-4 pb-10">
                     <label htmlFor="notes-title" className='flex flex-col border-b-2 pb-1'>
                         <span className='text-lg font-bold tracking-wider font-raleway'>Title</span>

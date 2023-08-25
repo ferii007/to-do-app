@@ -33,12 +33,6 @@ const TodoElements = () => {
         }
     }
 
-    const handleOutsideClick = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            hideDropdown();
-        }
-    };
-
     const handleDelete = (id, title, notes) => {
         // hideDropdown();
         showDeleteNoteModal({
@@ -48,7 +42,12 @@ const TodoElements = () => {
             notes: notes
         });
     }
-    
+
+    // const handleOutsideClick = (event) => {
+    //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    //         hideDropdown();
+    //     }
+    // };
 
     // useEffect(() => {
     //     document.addEventListener('mousedown', handleOutsideClick);
@@ -95,7 +94,6 @@ const TodoElements = () => {
         };
     }, [isCreateTodo, isShowDeleteNoteModal]);
 
-
     const ParagraphWithLimit = ({ text, limit }) => {
         const words = text.split(' ');
       
@@ -111,18 +109,16 @@ const TodoElements = () => {
         );
     };
 
-    return (
-        <div>
+    return(
+        <>
             <div className='pt-8 pb-24'>
-                <div className="bg-white rounded-lg drop-shadow-lg overflow-hidden">
-                    <div className="bg-default-theme-color-success w-full p-4"></div>
+                <div className='bg-white rounded-lg drop-shadow-lg overflow-hidden'>
+                    <div className="bg-default-theme-color-success w-full p-4" />
 
-                    <div className="p-4">
-                        <div className="flex items-center space-x-4 lg:cursor-pointer" onClick={() => createTodo(true)}>
-                            <Icon icon="ph:plus-fill" width="32" className='text-default-theme-color-success' />
+                    <div className="p-4 flex items-center space-x-4 lg:cursor-pointer" onClick={() => createTodo(true)}>
+                        <Icon icon="ph:plus-fill" width="32" className='text-default-theme-color-success' />
 
-                            <h1 className='text-lg font-bold'>Tap to create a new task</h1>
-                        </div>
+                        <h1 className='text-lg font-bold'>Tap to create a new task</h1>
                     </div>
 
                     <div className='p-3'>
@@ -145,35 +141,34 @@ const TodoElements = () => {
                     Displaying {dataNotes.length} out of {allDataNotesLength.length} Notes
                 </h3>
             </div>
+
             {
-                dataNotes.length !== 0 ? 
+                dataNotes.length !== 0 &&
                 dataNotes.map(notes => (
                     <div key={notes.id} className="bg-white rounded-lg drop-shadow-lg overflow-hidden mb-8 relative">
-                        <div>
-                            <div className="bg-default-theme-color-success w-full px-4 py-2 flex justify-between items-center">
-                                <h5 className='text-base font-semibold text-white tracking-wider w-3/4 overflow-hidden whitespace-nowrap text-ellipsis'>{notes.title}</h5>
+                        <div className="bg-default-theme-color-success w-full px-4 py-2 flex justify-between items-center">
+                            <h5 className='text-base font-semibold text-white tracking-wider w-3/4 overflow-hidden whitespace-nowrap text-ellipsis'>{notes.title}</h5>
 
-                                <Icon icon="tabler:dots" className='text-3xl text-white lg:cursor-pointer' onClick={() => showDropdown(`dropdown-${notes.id}`)} />
-                            </div>
+                            <Icon icon="tabler:dots" className='text-3xl text-white lg:cursor-pointer' onClick={() => showDropdown(`dropdown-${notes.id}`)} />
+                        </div>
 
-                            <div className="p-4 h-32">
-                                <p className='text-secondary-color-neutral mb-2'>Note:</p>
+                        <div className="p-4 h-32">
+                            <p className='text-secondary-color-neutral mb-2'>Note:</p>
 
-                                <ParagraphWithLimit text={notes.notes} limit={20} />
-                            </div>
+                            <ParagraphWithLimit text={notes.notes} limit={20} />
+                        </div>
 
-                            <div className='p-3'>
-                                <hr />
+                        <div className='py-3 px-4'>
+                            <hr />
 
-                                <div className='flex items-center justify-between text-secondary-color-neutral pt-2 pb-1'>
-                                    <h3>{formatDate(notes.date)}</h3>
+                            <div className='flex items-center justify-between text-secondary-color-neutral pt-2 pb-1'>
+                                <h3>{formatDate(notes.date)}</h3>
 
-                                    <h3>{formatTime(notes.date)}</h3>
-                                </div>
+                                <h3>{formatTime(notes.date)}</h3>
                             </div>
                         </div>
 
-                        <div ref={dropdownRef} className={`bg-bg-color-neutral shadow-xl shadow-slate-300 absolute right-5 top-9 flex gap-3 p-2 rounded-lg text-secondary-color-neutral ${isDropdownVisible === `dropdown-${notes.id}` ? 'opacity-100 w-40' : 'opacity-0 w-0'} transition-all duration-500`}>
+                        <div ref={dropdownRef} className={`bg-bg-color-neutral shadow-xl shadow-slate-300 absolute right-5 top-9 flex gap-3 p-2 rounded-lg text-secondary-color-neutral ${isDropdownVisible === `dropdown-${notes.id}` ? 'opacity-100 w-40' : 'opacity-0 w-0'} transition-all duration-300`}>
                             <Icon icon="ri:share-fill" className='cursor-pointer w-7 h-7' />
                             <Icon icon="solar:download-bold" className='cursor-pointer w-7 h-7' />
                             <Icon icon="bxs:edit" className='cursor-pointer w-7 h-7' />
@@ -181,10 +176,8 @@ const TodoElements = () => {
                         </div>
                     </div>
                 ))
-                :
-                null
             }
-        </div>
+        </>
     )
 
 }

@@ -12,6 +12,12 @@
     font-family: 'SF';
     font-weight: normal;
   }
+
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background-color: white;
+  }
 }
 
 @layer components {
