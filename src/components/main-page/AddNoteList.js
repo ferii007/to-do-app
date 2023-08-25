@@ -91,7 +91,7 @@ const AddNoteList = () => {
 
                     <label htmlFor="notes-desc" className='flex flex-col'>
                         <span className='text-lg font-bold tracking-wider font-raleway'>Notes</span>
-                        <textarea type="text" name="notes-desc" id="notes-desc" className="input-form h-80" placeholder="Your Notes" onChange={e => setDescNote(e.target.value)} />
+                        <textarea type="text" name="notes-desc" id="notes-desc" className="input-form h-80" placeholder="Your Notes" value={descNote} onChange={e => setDescNote(e.target.value)} />
                     </label>
                 </form>
             </div>

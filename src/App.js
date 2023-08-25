@@ -3,7 +3,7 @@ import NotifAlert from "./components/alert/NotifAlert";
 
 function App() {
   return (
-    <main className="relative">
+    <main className="relative overflow-hidden">
       <TodoApp />
 
       <NotifAlert />
