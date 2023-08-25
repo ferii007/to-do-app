@@ -35,7 +35,7 @@ const TodoApp = () => {
 
     return(
         <>
-            <main className="bg-bg-color-neutral relative h-screen overflow-scroll">
+            <main className="bg-bg-color-neutral relative h-screen overflow-scroll scroll-smooth">
                 <section className="pb-40">
                     <Carousel
                         className="h-full max-w-screen-sm m-auto"
@@ -43,6 +43,10 @@ const TodoApp = () => {
                         showDots={true}
                         // centerMode={false}
                         // swipeable={true}
+                        // afterChange={(previousSlide, { currentSlide, onMove }) => {
+                        //     let mainElement = document.querySelector("main");
+                        //     mainElement.scrollTo(0, 0);
+                        //   }}
                         customDot={<Footer />}
                         responsive={responsive}
                     >

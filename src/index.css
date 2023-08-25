@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.react-multi-carousel-dot-list {
+  @apply w-full bg-white shadow-inner items-center text-secondary-color-neutral;
+  position: fixed !important;
+  padding: 1.75rem 0.5rem !important;
+  justify-content: space-around !important;
+}
+
 @layer base {
   @font-face {
     font-family: 'SF';

@@ -51,7 +51,7 @@ const DeleteNote = () => {
         <>
             {isShowDeleteNoteModal && <OverlayElement />}
 
-            <div className={`absolute top-1/2 left-0 right-0 px-3 m-auto h-screen z-20 ${isShowDeleteNoteModal ? 'scale-100' : 'scale-0'} transition-all duration-300`}>
+            <div className={`absolute top-1/3 left-0 right-0 px-3 m-auto h-screen z-20 ${isShowDeleteNoteModal ? 'scale-100' : 'scale-0'} transition-all duration-300`}>
                 <div className="bg-white rounded-lg drop-shadow-lg overflow-hidden w-full">
                     <div className="bg-default-theme-color-success w-full px-4 py-2 flex justify-between items-center">
                         <h5 className='text-base font-semibold text-white tracking-wider w-full overflow-hidden whitespace-nowrap text-ellipsis'>

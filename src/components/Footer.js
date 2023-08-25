@@ -1,13 +1,22 @@
 import { Icon } from "@iconify/react"
 
-const Footer = () => {
+const Footer = ({ index, onClick, active }) => {
+    const iconSrc = [
+        "ic:round-home",
+        "ph:note-fill",
+        "uis:schedule",
+        "uiw:setting",
+    ]
     return(
-        <footer className="fixed bottom-0 w-full py-7 px-2 bg-white shadow-inner flex justify-around items-center text-secondary-color-neutral">
-            <Icon icon="ic:round-home" className="w-8 h-8" />
-            <Icon icon="ph:note-fill" className="w-8 h-8" />
-            <Icon icon="uis:schedule" className="w-8 h-8" />
-            <Icon icon="uiw:setting" className="w-8 h-8" />
-        </footer>
+        <li 
+        className={`
+            active-test relative before:content-[''] before:absolute before:-top-6 before:-left-1.5 before:border-t-default-theme-color-success before:border-t-4 before:w-11 before:origin-center before:transform before:-translate-y-1/2 before:transition-transform before:ease-in-out before:duration-500
+            ${
+                active ? 'before:scale-100': "before:scale-0"
+            }`}
+        onClick={() => onClick()}>
+            <Icon className={`${active ? "text-default-theme-color-success active-test" : "inactive"} w-7 h-7` } icon={iconSrc[index]} />
+        </li>
     )
 }
 
