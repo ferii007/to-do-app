@@ -14,7 +14,7 @@ const SettingPage = () => {
     }
     
     return(
-        <section className={`absolute top-0 left-0 right-0 bottom-0 bg-white p-4 ${isSettingPage ? 'translate-x-0' : 'translate-x-full'} ease-in-out duration-500`}>
+        <section className={`h-screen absolute top-0 left-0 right-0 bottom-0 bg-white p-4 ${isSettingPage ? 'translate-x-0 z-50' : '-translate-x-full -z-50'} transition-all ease-in-out duration-500`}>
             <div className='flex justify-between items-center px-3 py-5'>
                 <Icon icon="ic:outline-arrow-back-ios" className="w-7 h-7" onClick={() => closeSettingPage()} />
                 <h1 className="text-2xl font-medium">Settings</h1>
@@ -78,7 +78,6 @@ const SettingPage = () => {
                     <Icon icon="ic:outline-arrow-back-ios" className="setting-icon" />
                 </div>
             </div>
-
         </section>
     )
 }

@@ -8,6 +8,7 @@ import MainPage from "./main-page/MainPage"
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import SettingPage from "./setting-page/SettingPage";
+import NotesPage from "./notes--page/NotesPage";
 
 const TodoApp = () => {
     const responsive = {
@@ -36,27 +37,30 @@ const TodoApp = () => {
 
     return(
         <>
-            <main className="bg-bg-color-neutral relative h-screen overflow-scroll scroll-smooth">
-                <section className="pb-40">
-                    <Carousel
-                        className="h-full max-w-screen-sm m-auto"
-                        arrows={false}
-                        showDots={true}
-                        // centerMode={false}
-                        // swipeable={true}
-                        // afterChange={(previousSlide, { currentSlide, onMove }) => {
-                        //     let mainElement = document.querySelector("main");
-                        //     mainElement.scrollTo(0, 0);
-                        //   }}
-                        customDot={<Footer />}
-                        responsive={responsive}
-                    >
-                        <MainPage />
-                        <div>Item 2</div>
-                        <div>Item 3</div>
-                        <div>Item 4</div>
-                    </Carousel>
-                </section>
+            <main className="bg-bg-color-neutral relative scroll-smooth">
+                <Carousel
+                    className="h-full max-w-screen-sm m-auto"
+                    arrows={false}
+                    showDots={true}
+                    partialVisible={true}
+                    slidesToSlide={1}
+                    rtl={false}
+                    containerClass="container"
+                    centerMode={false}
+                    focusOnSelect={true}
+                    // swipeable={true}
+                    // afterChange={(previousSlide, { currentSlide, onMove }) => {
+                    //     let mainElement = document.querySelector("main");
+                    //     mainElement.scrollTo(0, 0);
+                    //   }}
+                    customDot={<Footer />}
+                    responsive={responsive}
+                >
+                    <MainPage />
+                    <NotesPage />
+                    <div>Item 3</div>
+                    <div>Item 4</div>
+                </Carousel>
             </main>
 
             <NotifAlert />

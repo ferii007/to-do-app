@@ -71,13 +71,13 @@ const AddNoteList = () => {
     }
 
     return (
-        <div className={`bg-white h-screen absolute left-0 right-0 ${isCreateTodo ? 'top-0 bottom-full opacity-100' : '-bottom-full top-full opacity-0 -z-50'} transition-all duration-500`}>
+        <div className={`bg-white h-screen absolute left-0 right-0 ${isCreateTodo ? 'top-0 bottom-full opacity-100 z-10' : '-bottom-full -top-full opacity-0 -z-10'} transition-all duration-500`}>
             <div className='bg-bg-color-neutral p-4 border-b border-line-color-neutral flex justify-between items-center'>
                 <h1 className='text-xl font-bold font-raleway'>Add Note</h1>
 
                 <div className='flex gap-3'>
-                    <Icon icon="material-symbols:save-outline" width="32" className='text-secondary-color-neutral cursor-pointer' onClick={() => addNote()} />
-                    <Icon icon="mingcute:back-fill" width="32" className='text-secondary-color-neutral cursor-pointer' onClick={() => createTodo(false)} />
+                    <Icon icon="material-symbols:save-outline" width="32" className='text-secondary-color-neutral hover:text-default-theme-color-success' onClick={() => addNote()} />
+                    <Icon icon="mingcute:back-fill" width="32" className='text-secondary-color-neutral hover:text-default-theme-color-success' onClick={() => createTodo(false)} />
                 </div>
             </div>
 

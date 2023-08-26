@@ -22,6 +22,12 @@ export const formatDate = (timestamp) => {
     return formattedDate;
 };
 
+export const formatDate2 = (timestamp) => {
+    const date = new Date(timestamp);
+    const formattedDate = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`;
+    return formattedDate;
+};
+
 export const formatTime = (timestamp) => {
     const date = new Date(timestamp);
     const hours = String(date.getHours()).padStart(2, '0');
