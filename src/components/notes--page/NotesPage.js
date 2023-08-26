@@ -3,12 +3,11 @@ import { Icon } from '@iconify/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from './../../store/actions/index';
-import { useEffect, useRef, useState } from 'react';
-import { formatDate, formatDate2, formatTime } from '../helpers/formatDate';
+import { formatDate2, formatTime } from '../helpers/formatDate';
 
 const NotesPage = () => {
     const dispatch = useDispatch();
-	const { createTodo, allDataNotes, showDeleteNoteModal } = bindActionCreators(actionCreators, dispatch);
+	const { createTodo,  } = bindActionCreators(actionCreators, dispatch);
 
     const allDataNotesLength = useSelector((state) => state.allDataNotes);
 
