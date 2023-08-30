@@ -58,7 +58,7 @@ const NotesPage = () => {
                 {
                     allDataNotesLength.length !== 0 &&
                     paginatedData.map(notes => (
-                        <div className='flex justify-between items-center border-b-2 border-line-color-neutral pt-4'>
+                        <div key={notes.id} className='flex justify-between items-center border-b-2 border-line-color-neutral pt-4'>
                             <div>
                                 <h5 className='text-lg font-bold'>{notes.title}</h5>
                                     

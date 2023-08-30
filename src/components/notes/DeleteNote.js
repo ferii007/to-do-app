@@ -21,7 +21,7 @@ const DeleteNote = () => {
         });
     }
 
-    const handleDeleteNote = (id) => {
+    const deleteNote = (id) => {
         const request = window.indexedDB.open('noteDatabase', 1);
 
         request.onsuccess = function(event) {
@@ -70,7 +70,7 @@ const DeleteNote = () => {
 
                         <div className='flex items-center justify-end text-secondary-color-neutral pt-2 pb-1 gap-5'>
                             <button className='bg-bg-color-neutral text-primary-theme-color-success px-4 py-3 rounded-lg shadow-xl' onClick={() => cancelDelete()}>Cancel</button>
-                            <button className='bg-default-theme-color-error text-white px-4 py-3 rounded-lg shadow-xl' onClick={() => handleDeleteNote(idNoteOnModal)}>Delete</button>
+                            <button className='bg-default-theme-color-error text-white px-4 py-3 rounded-lg shadow-xl' onClick={() => deleteNote(idNoteOnModal)}>Delete</button>
                         </div>
                     </div>
                 </div>

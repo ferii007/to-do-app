@@ -17,7 +17,6 @@ const EditNote = () => {
     const [titleNote, setTittleNote] = useState('');
     const [descNote, setDescNote] = useState('');
 
-
     const editNote = (id, newTitle, newDesc) => {
         const request = window.indexedDB.open('noteDatabase', 1);
     
@@ -65,22 +64,11 @@ const EditNote = () => {
         };
     };
 
-
-
     const closeEditNote = () => {
-        editNoteModalHide();
         setTittleNote('');
         setDescNote('');
+        editNoteModalHide();
     }
-
-    const draftEditNote = () => {
-        closeEditNote()
-        alertNotif(true, 'Drafted');
-        setTimeout(() => {
-            alertNotif(false, 'Drafted');
-        }, 1500);
-    }
-      
 
     return (
         <div className={`bg-white h-screen absolute left-0 right-0 ${isEditNote ? 'top-0 z-10' : '-top-full -z-10'} ease-out duration-300`}>
@@ -89,7 +77,7 @@ const EditNote = () => {
 
                 <div className='flex gap-3'>
                     <Icon icon="material-symbols:save-outline" width="32" className='text-secondary-color-neutral hover:text-default-theme-color-success' onClick={() => editNote(editNoteId, titleNote, descNote)} />
-                    <Icon icon="mingcute:back-fill" width="32" className='text-secondary-color-neutral hover:text-default-theme-color-success' onClick={() => draftEditNote()} />
+                    <Icon icon="mingcute:back-fill" width="32" className='text-secondary-color-neutral hover:text-default-theme-color-success' onClick={() => closeEditNote()} />
                 </div>
             </div>
 
