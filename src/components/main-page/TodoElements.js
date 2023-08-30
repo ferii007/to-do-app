@@ -8,10 +8,11 @@ import { formatDate, formatTime } from '../helpers/formatDate';
 
 const TodoElements = () => {
     const dispatch = useDispatch();
-	const { createTodo, allDataNotes, showDeleteNoteModal } = bindActionCreators(actionCreators, dispatch);
+	const { createTodo, allDataNotes, showDeleteNoteModal, editNoteModal } = bindActionCreators(actionCreators, dispatch);
     const isCreateTodo = useSelector((state) => state.createTodo);
     const allDataNotesLength = useSelector((state) => state.allDataNotes);
     const isShowDeleteNoteModal = useSelector((state) => state.showDeleteNoteModal);
+    const editNoteModalData = useSelector((state) => state.editNoteModal);
 
     const [allNotes, setAllNotes] = useState([]);
     const [dataNotes, setDataNotes] = useState([]);
@@ -97,7 +98,7 @@ const TodoElements = () => {
         request.onerror = function() {
             console.error('Gagal membuka database IndexedDB');
         };
-    }, [isCreateTodo, isShowDeleteNoteModal]);
+    }, [isCreateTodo, isShowDeleteNoteModal, editNoteModalData]);
 
     const ParagraphWithLimit = ({ text, limit }) => {
         const words = text.split(' ');
@@ -157,7 +158,7 @@ const TodoElements = () => {
                             <Icon icon="tabler:dots" className='text-3xl text-white lg:cursor-pointer' onClick={() => showDropdown(`dropdown-${notes.id}`)} />
                         </div>
 
-                        <div className="p-4 h-32">
+                        <div className="p-4 h-32" onClick={() => editNoteModal({open: true, id: notes.id, title: notes.title, notes: notes.notes})}>
                             <p className='text-secondary-color-neutral mb-2'>Note:</p>
 
                             <ParagraphWithLimit text={notes.notes} limit={20} />
@@ -176,7 +177,7 @@ const TodoElements = () => {
                         <div ref={dropdownRef} className={`bg-bg-color-neutral shadow-xl shadow-slate-300 absolute right-5 top-9 flex gap-3 p-2 rounded-lg text-secondary-color-neutral ${isDropdownVisible === `dropdown-${notes.id}` ? 'opacity-100 w-40' : 'opacity-0 w-0'} transition-all duration-300`}>
                             <Icon icon="ri:share-fill" className='cursor-pointer w-7 h-7' />
                             <Icon icon="solar:download-bold" className='cursor-pointer w-7 h-7' />
-                            <Icon icon="bxs:edit" className='cursor-pointer w-7 h-7' />
+                            <Icon icon="bxs:edit" className='cursor-pointer w-7 h-7' onClick={() => editNoteModal({open: true, id: notes.id, title: notes.title, notes: notes.notes})} />
                             <Icon icon="ph:trash-fill" className='cursor-pointer w-7 h-7 text-default-theme-color-error' onClick={() => handleDelete(notes.id, notes.title, notes.notes)} />
                         </div>
                     </div>

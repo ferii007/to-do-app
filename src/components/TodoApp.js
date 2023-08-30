@@ -10,6 +10,7 @@ import 'react-multi-carousel/lib/styles.css';
 import SettingPage from "./setting-page/SettingPage";
 import NotesPage from "./notes-page/NotesPage";
 import SortingModal from "./notes-page/SortingModal";
+import EditNote from "./notes/EditNote";
 
 const TodoApp = () => {
     const responsive = {
@@ -66,6 +67,7 @@ const TodoApp = () => {
             <NotifAlert />
             <DeleteNote />
             <AddNoteList /> 
+            <EditNote />
             <SettingPage />
         </>
     )

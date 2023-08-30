@@ -26,6 +26,24 @@ export const showDeleteNoteModal = (flag) => {
     }
 }
 
+export const editNoteModal = (flag) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'edit_note_modal',
+            payload: flag
+        })
+    }
+}
+
+export const editNoteModalHide = (flag) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'hide_edit_note_modal',
+            payload: flag
+        })
+    }
+}
+
 export const alertNotif = (flag, message) => {
     return (dispatch) => {
         dispatch({

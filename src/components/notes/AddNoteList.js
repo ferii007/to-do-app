@@ -70,6 +70,14 @@ const AddNoteList = () => {
         };
     }
 
+    const draftAddNote = () => {
+        createTodo(false);
+        alertNotif(true, 'Drafted');
+        setTimeout(() => {
+            alertNotif(false, 'Drafted');
+        }, 1500);
+    }
+
     return (
         <div className={`bg-white h-screen absolute left-0 right-0 ${isCreateTodo ? 'top-0 z-10' : '-top-full -z-10'} ease-out duration-300`}>
             <div className='bg-bg-color-neutral p-4 border-b border-line-color-neutral flex justify-between items-center'>
@@ -77,7 +85,7 @@ const AddNoteList = () => {
 
                 <div className='flex gap-3'>
                     <Icon icon="material-symbols:save-outline" width="32" className='text-secondary-color-neutral hover:text-default-theme-color-success' onClick={() => addNote()} />
-                    <Icon icon="mingcute:back-fill" width="32" className='text-secondary-color-neutral hover:text-default-theme-color-success' onClick={() => createTodo(false)} />
+                    <Icon icon="mingcute:back-fill" width="32" className='text-secondary-color-neutral hover:text-default-theme-color-success' onClick={() => draftAddNote()} />
                 </div>
             </div>
 
