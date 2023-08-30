@@ -6,18 +6,16 @@ import * as actionCreators from '../../store/actions/index';
 import { formatDate2, formatTime } from '../helpers/formatDate';
 import { useRef, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import SortingModal from './SortingModal';
 
 const NotesPage = () => {
     const dispatch = useDispatch();
-	const { createTodo,  } = bindActionCreators(actionCreators, dispatch);
+	const { createTodo, showSortingNotesModal } = bindActionCreators(actionCreators, dispatch);
 
     const allDataNotesLength = useSelector((state) => state.allDataNotes);
     const displaySorted = useSelector((state) => state.sortingNotes.displaySorted);
     const sortedBy = useSelector((state) => state.sortingNotes.sortedBy);
     const scrollRef = useRef();
     const [currentPage, setCurrentPage] = useState(0);
-    const [showSortingModal, setShowSortingModal] = useState(false);
 
     const scrollToTop = () => {
         scrollRef.current.scrollTo({ top: 0, behavior: 'auto' }); 
@@ -53,7 +51,7 @@ const NotesPage = () => {
                     Displaying {displaySorted} out of {allDataNotesLength.length} Notes
                 </h3>
 
-                <Icon icon="uiw:setting" width={24} className='text-secondary-color-neutral' onClick={() => setShowSortingModal(true)} />
+                <Icon icon="uiw:setting" width={24} className='text-secondary-color-neutral' onClick={() => showSortingNotesModal(true)} />
             </div>
 
             <div>
@@ -91,8 +89,6 @@ const NotesPage = () => {
                     activeClassName={'text-default-theme-color-success'}
                 />
             }
-
-            <SortingModal showSortingModal={showSortingModal} setShowSortingModal={setShowSortingModal} />
         </section>
     )
 }

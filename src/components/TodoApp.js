@@ -9,6 +9,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import SettingPage from "./setting-page/SettingPage";
 import NotesPage from "./notes-page/NotesPage";
+import SortingModal from "./notes-page/SortingModal";
 
 const TodoApp = () => {
     const responsive = {
@@ -48,11 +49,6 @@ const TodoApp = () => {
                     containerClass="container"
                     centerMode={false}
                     focusOnSelect={true}
-                    // swipeable={true}
-                    // afterChange={(previousSlide, { currentSlide, onMove }) => {
-                    //     let mainElement = document.querySelector("main");
-                    //     mainElement.scrollTo(0, 0);
-                    //   }}
                     customDot={<Footer />}
                     responsive={responsive}
                 >
@@ -62,14 +58,14 @@ const TodoApp = () => {
                     <div>Item 4</div>
                 </Carousel>
             </main>
-
+            
+            <SortingModal />
             <NotifAlert />
             <DeleteNote />
             <AddNoteList /> 
             <SettingPage />
         </>
     )
-
 }
 
 export default TodoApp

@@ -96,7 +96,6 @@ const AddNoteList = () => {
             </div>
         </div>
     )
-
 }
 
 export default AddNoteList

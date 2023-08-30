@@ -1,8 +1,6 @@
 import { Icon } from '@iconify/react';
 import TodoElements from './TodoElements';
 
-import { useSelector } from 'react-redux';
-
 const MainPage = () => {
     return(
         <section className={`h-screen overflow-scroll pb-40 pt-10 px-5`}>

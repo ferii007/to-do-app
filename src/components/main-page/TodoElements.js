@@ -13,6 +13,7 @@ const TodoElements = () => {
     const allDataNotesLength = useSelector((state) => state.allDataNotes);
     const isShowDeleteNoteModal = useSelector((state) => state.showDeleteNoteModal);
 
+    const [allNotes, setAllNotes] = useState([]);
     const [dataNotes, setDataNotes] = useState([]);
     const [isDropdownVisible, setDropdownVisible] = useState('');
     const [dropdownClicked, setIsDropdownClicked] = useState(false);
@@ -58,6 +59,10 @@ const TodoElements = () => {
     // }, []);
 
     useEffect(() => {
+        allDataNotes(allNotes);
+    })
+
+    useEffect(() => {
         const request = window.indexedDB.open('noteDatabase', 1);
 
         request.onupgradeneeded = function(event) {
@@ -81,7 +86,7 @@ const TodoElements = () => {
 
                 // Mengurutkan data berdasarkan ID secara terbalik
                 const sortedNotes = notes.sort((a, b) => b.id - a.id);
-                allDataNotes(sortedNotes);
+                setAllNotes(sortedNotes)
 
                 // Mengambil maksimal 3 data
                 const limitedNotes = sortedNotes.slice(0, 4);

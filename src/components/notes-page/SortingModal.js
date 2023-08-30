@@ -2,22 +2,29 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../store/actions/index';
+import OverlayElement from '../OverlayElement';
 
-const SortingModal = ({showSortingModal, setShowSortingModal}) => {
+const SortingModal = () => {
     const dispatch = useDispatch();
-	const { sortingNotes } = bindActionCreators(actionCreators, dispatch);
+	const { sortingNotes, showSortingNotesModal, alertNotif } = bindActionCreators(actionCreators, dispatch);
 
+    const isShowSortingNotesModal = useSelector((state) => state.showSortingNotesModal);
     const sortedDisplay = useSelector((state) => state.sortingNotes.displaySorted);
     const sortedBy = useSelector((state) => state.sortingNotes.sortedBy);
     const [sorted, setSorted] = useState(sortedDisplay);
     const [sortingBy, setSortingBy] = useState(sortedBy);
 
     const handleSaveSorting = () => {
+        alertNotif(true, 'Saved');
+        setTimeout(() => {
+            alertNotif(false, 'Saved');
+        }, 1500);
+        
         sortingNotes({
             sortedBy: sortingBy,
             displaySorted: sorted
         })
-        setShowSortingModal(false)
+        showSortingNotesModal(false)
     }
 
     const handleCancelSorting = () => {
@@ -25,11 +32,14 @@ const SortingModal = ({showSortingModal, setShowSortingModal}) => {
             sortedBy: sortedBy,
             displaySorted: sortedDisplay
         })
-        setShowSortingModal(false)
+        showSortingNotesModal(false)
     }
 
     return(
-        <div className={`absolute top-1/4 left-0 right-0 px-3 m-auto h-screen z-20 ${showSortingModal === true ? 'scale-100' : 'scale-0'} transition-all duration-300`}>
+        <>
+            {isShowSortingNotesModal && <OverlayElement />}
+
+            <div className={`absolute top-1/4 left-0 right-0 px-3 m-auto h-screen z-20 ${isShowSortingNotesModal === true ? 'scale-100' : 'scale-0'} transition-all duration-300`}>
                 <div className="bg-white rounded-lg drop-shadow-lg overflow-hidden w-full">
                     <div className="bg-default-theme-color-success w-full px-4 py-2 flex justify-between items-center">
                         <h5 className='text-base font-semibold text-white tracking-wider w-full overflow-hidden whitespace-nowrap text-ellipsis'>
@@ -98,6 +108,7 @@ const SortingModal = ({showSortingModal, setShowSortingModal}) => {
                     </div>
                 </div>
             </div>
+        </>
     )
 }
 

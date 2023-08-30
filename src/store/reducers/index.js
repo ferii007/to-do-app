@@ -5,6 +5,7 @@ import showDeleteNoteModalReducer from "./showDeleteNoteModalReducer";
 import alertReducer from "./alertReducer";
 import settingPageReducer from "./settingPageReducer";
 import sortingNotesReducer from "./sortingNotesReducer";
+import showSortingNotesModalReducer from "./showSortingNotesModalReducer";
 
 export default combineReducers({
     createTodo: createTodoReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
     alertNotif: alertReducer,
     settingPage: settingPageReducer,
     sortingNotes: sortingNotesReducer,
+    showSortingNotesModal: showSortingNotesModalReducer,
 });

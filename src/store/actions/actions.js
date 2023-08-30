@@ -55,3 +55,12 @@ export const sortingNotes = (flag, message) => {
         })
     }
 }
+
+export const showSortingNotesModal = (flag, message) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'show_sorting_notes_modal',
+            payload: flag
+        })
+    }
+}
