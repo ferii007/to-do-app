@@ -41,6 +41,9 @@ const TodoApp = () => {
             <main className="bg-bg-color-neutral relative scroll-smooth">
                 <Carousel
                     className="h-full max-w-screen-sm m-auto"
+                    keyBoardControl={false}
+                    swipeable={false}
+                    draggable={false}
                     arrows={false}
                     showDots={true}
                     partialVisible={true}
