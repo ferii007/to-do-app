@@ -59,4 +59,25 @@
   .setting-icon {
     @apply w-6 h-6 rotate-180
   }
+
+  .custom-radio {
+    @apply inline-block w-6 h-6 border-2 border-primary-theme-color-success rounded-full;
+  }
+
+  input[type="radio"]:checked + .custom-radio {
+    @apply border-primary-theme-color-success bg-white;
+  }
+
+  input[type="radio"]:checked + .custom-radio::before {
+    @apply block bg-primary-theme-color-success w-4 h-4 rounded-full m-0.5;
+    content: '';
+  }
+
+  .custom-radio-box {
+    @apply w-8 h-8 border-2 border-primary-theme-color-success flex items-center justify-center ease-in-out duration-300;
+  }
+  
+  input[type="radio"]:checked + .custom-radio-box {
+    @apply border-primary-theme-color-success bg-focused-theme-color-success text-primary-theme-color-success
+  }
 }

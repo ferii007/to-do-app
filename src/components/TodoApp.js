@@ -8,7 +8,7 @@ import MainPage from "./main-page/MainPage"
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import SettingPage from "./setting-page/SettingPage";
-import NotesPage from "./notes--page/NotesPage";
+import NotesPage from "./notes-page/NotesPage";
 
 const TodoApp = () => {
     const responsive = {

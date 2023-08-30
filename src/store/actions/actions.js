@@ -46,3 +46,12 @@ export const settingPage = (flag, message) => {
         })
     }
 }
+
+export const sortingNotes = (flag, message) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'sorting_notes',
+            payload: flag
+        })
+    }
+}

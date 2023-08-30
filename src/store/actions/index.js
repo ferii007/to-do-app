@@ -1,6 +1,6 @@
-import { createTodo, allDataNotes, showDeleteNoteModal, alertNotif, settingPage} from './actions';
+import { createTodo, allDataNotes, showDeleteNoteModal, alertNotif, settingPage, sortingNotes} from './actions';
 
 
 
 
-export { createTodo, allDataNotes, showDeleteNoteModal, alertNotif, settingPage }
+export { createTodo, allDataNotes, showDeleteNoteModal, alertNotif, settingPage, sortingNotes }
