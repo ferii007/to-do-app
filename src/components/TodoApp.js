@@ -3,7 +3,7 @@ import DeleteNote from "./notes/DeleteNote";
 import Footer from "./Footer"
 import NotifAlert from "./alert/NotifAlert"
 import MainPage from "./main-page/MainPage"
-// import StartPage from "./start-page/StartPage"
+// import StartPage from "./start-page/StartPage" 
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -11,6 +11,8 @@ import SettingPage from "./setting-page/SettingPage";
 import NotesPage from "./notes-page/NotesPage";
 import SortingModal from "./notes-page/SortingModal";
 import EditNote from "./notes/EditNote";
+// import { addBulkData } from "./helpers/dataDummy";
+// import { useEffect } from "react";
 
 const TodoApp = () => {
     const responsive = {
@@ -36,6 +38,10 @@ const TodoApp = () => {
             items: 1
         }
     };
+
+    // useEffect(() => {
+    //     addBulkData()
+    // }, []);
 
     return(
         <>

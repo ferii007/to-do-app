@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../store/actions/index';
-import { formatDate2, formatTime } from '../helpers/formatDate';
+import { formatTimestamp } from '../helpers/formatDate';
 import { useRef, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
@@ -38,6 +38,21 @@ const NotesPage = () => {
         (currentPage + 1) * displaySorted
     );
 
+    const ParagraphWithLimit = ({ text, limit }) => {
+        const words = text.split(' ');
+      
+        return (
+            <p className="text-secondary-color-neutral text-sm">
+                {words.slice(0, limit).join(' ')}
+                {words.length > limit && (
+                    <span>
+                        ...
+                    </span>
+                )}
+            </p>
+        );
+    };
+
     return(
         <section ref={scrollRef} className={`h-screen overflow-scroll pb-48 pt-10 px-5`}>
             <div className="flex justify-between items-center border-b-2 border-line-color-neutral">
@@ -54,7 +69,7 @@ const NotesPage = () => {
                 <Icon icon="uiw:setting" width={24} className='text-secondary-color-neutral' onClick={() => showSortingNotesModal(true)} />
             </div>
 
-            <div>
+            {/* <div>
                 {
                     allDataNotesLength.length !== 0 &&
                     paginatedData.map(notes => (
@@ -72,22 +87,44 @@ const NotesPage = () => {
                         </div>
                     ))
                 }
+            </div> */}
+
+            <div className="container mt-8">
+                <div className="columns-2 gap-3">
+                    {
+                        allDataNotesLength.length !== 0 &&
+                        paginatedData.map(notes => (
+                            <div key={notes.id} className="relative p-3 break-inside-avoid bg-white shadow-lg rounded-xl max-h-44 mb-3">
+                                <h5 className='mb-1 text-base font-semibold tracking-wider w-11/12 overflow-hidden whitespace-nowrap text-ellipsis'>
+                                    {notes.title}
+                                </h5>
+
+                                <ParagraphWithLimit text={notes.notes} limit={18} />
+
+                                <h6 className='mt-3 text-primary-color-neutral text-sm'>{formatTimestamp(notes.date)}</h6>
+                            </div>
+                        ))
+                    }
+
+                </div>
             </div>
 
             {
                 allDataNotesLength.length > displaySorted &&
-                <ReactPaginate
-                    forcePage={currentPage}
-                    previousLabel={'Previous'}
-                    nextLabel={'Next'}
-                    breakLabel={'...'}
-                    pageCount={Math.ceil(allDataNotesLength.length / displaySorted)}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={4}
-                    onPageChange={handlePageChange}
-                    containerClassName={'flex justify-between text-secondary-color-neutral text-xl py-2 mt-5'}
-                    activeClassName={'text-default-theme-color-success'}
-                />
+                <div className='pt-12'>
+                    <ReactPaginate
+                        forcePage={currentPage}
+                        previousLabel={'Previous'}
+                        nextLabel={'Next'}
+                        breakLabel={'...'}
+                        pageCount={Math.ceil(allDataNotesLength.length / displaySorted)}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={4}
+                        onPageChange={handlePageChange}
+                        containerClassName={'flex justify-between text-secondary-color-neutral text-xl py-2 mt-5'}
+                        activeClassName={'text-default-theme-color-success'}
+                    />
+                </div>
             }
         </section>
     )

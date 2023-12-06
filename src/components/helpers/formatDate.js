@@ -35,3 +35,23 @@ export const formatTime = (timestamp) => {
     const formattedTime = `${hours} : ${minutes}`;
     return formattedTime;
 };
+
+export const formatTimestamp = (timestamp) => {
+    const today = new Date();
+    const date = new Date(timestamp);
+
+    // Check if the timestamp is yesterday
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    if (date.toDateString() === yesterday.toDateString()) {
+        return "Yesterday";
+    }
+
+    // Check if the timestamp is today
+    if (date.toDateString() === today.toDateString()) {
+        return formatTime(timestamp);
+    }
+
+    // If not yesterday or today, return formatted date
+    return formatDate(timestamp);
+};
